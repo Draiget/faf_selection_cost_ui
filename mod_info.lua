@@ -1,5 +1,5 @@
 name = "Selection Cost UI"
-version = 6
+version = 7
 copyright = ""
 description = "Displays cost information for currently selected units.  No longer displays cost of ACU.  Rounds mass and e values.  Also displays the current spend rate of the selected units."
 author = "Blodir, Softly, Washy"
