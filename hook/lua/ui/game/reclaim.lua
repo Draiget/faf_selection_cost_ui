@@ -1,3 +1,5 @@
+local GetPixelScaleFactor = import('/lua/maui/layouthelpers.lua').GetPixelScaleFactor
+
 -- Mielus: Creates a smaller reclaim logo & color and text size depend on reclaim amount
 function CreateReclaimLabel(view)
     local label = WorldLabel(view, Vector(0, 0, 0))
@@ -24,9 +26,8 @@ function CreateReclaimLabel(view)
     label.Update = function(self)
         local view = self.parent.view
         local proj = view:Project(self.position)
-        LayoutHelpers.AtLeftTopIn(self, self.parent, proj.x - self.Width() / 2, proj.y - self.Height() / 2 + 1)
+		LayoutHelpers.AtLeftTopIn(self, self.parent, (proj.x / GetPixelScaleFactor()) - self.Width() / 2, (proj.y / GetPixelScaleFactor()) - self.Height() / 2 + 1)
         self.proj = {x=proj.x, y=proj.y }
-
     end
 
     label.DisplayReclaim = function(self, r)
